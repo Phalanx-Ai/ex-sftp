@@ -3,7 +3,8 @@
 	"title": "SFTP writer",
 	"required": [
 		"path",
-		"append_date"
+		"append_date",
+		"append_date_format"
 	],
 	"properties": {
 		"path": {
@@ -28,6 +29,13 @@
 					"Yes"
 				]
 			}
+		},
+		"append_date_format": {
+			"type": "string",
+			"title": "Date format of appended timestamp",
+			"description": "Date format as used in strftime() function",
+			"propertyOrder": 5300,
+			"default": "%Y%m%d%H%M%S"
 		}
 	}
 }

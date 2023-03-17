@@ -22,6 +22,7 @@ KEY_HOSTNAME = 'hostname'
 KEY_PORT = 'port'
 KEY_REMOTE_PATH = 'path'
 KEY_APPENDDATE = 'append_date'
+KEY_APPENDDATE_FORMAT = 'append_date_format'
 KEY_PRIVATE_KEY = '#private_key'
 # img parameter names
 KEY_HOSTNAME_IMG = 'sftp_host'
@@ -193,7 +194,7 @@ class Component(CommonInterface):
 
         timestamp_suffix = ''
         if params[KEY_APPENDDATE]:
-            timestamp_suffix = "_" + str(datetime.utcnow().strftime('%Y%m%d%H%M%S'))
+            timestamp_suffix = "_" + str(datetime.utcnow().strftime(params[KEY_APPENDDATE_FORMAT]))
 
         file_path = params[KEY_REMOTE_PATH]
         if file_path[-1] != "/":
