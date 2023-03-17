@@ -13,20 +13,21 @@
 			"propertyOrder": 60
 		},
 		"append_date": {
-						"type": "number",
-						"title": "Append timestamp",
-						"description": "Appends timestamp to result file name",
-						"propertyOrder": 5200,
-						"enum": [
-							0,
-							1
-						],
-						"default": 0,
-						"options": {
-							"enum_titles": [
-								"No",
-								"Yes"
-							]
-					}}
+			"type": "number",
+			"title": "Append timestamp",
+			"description": "Appends timestamp to result file name",
+			"propertyOrder": 5200,
+			"enum": [
+				0,
+				1
+			],
+			"default": 0,
+			"options": {
+				"enum_titles": [
+					"No",
+					"Yes"
+				]
+			}
+		}
 	}
 }
