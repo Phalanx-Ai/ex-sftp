@@ -3,7 +3,8 @@
 	"title": "SFTP writer",
 	"required": [
 		"path",
-		"append_date"
+		"append_date",
+		"append_date_format"
 	],
 	"properties": {
 		"path": {
@@ -13,20 +14,28 @@
 			"propertyOrder": 60
 		},
 		"append_date": {
-						"type": "number",
-						"title": "Append timestamp",
-						"description": "Appends timestamp to result file name",
-						"propertyOrder": 5200,
-						"enum": [
-							0,
-							1
-						],
-						"default": 0,
-						"options": {
-							"enum_titles": [
-								"No",
-								"Yes"
-							]
-					}}
+			"type": "number",
+			"title": "Append timestamp",
+			"description": "Appends timestamp to result file name",
+			"propertyOrder": 5200,
+			"enum": [
+				0,
+				1
+			],
+			"default": 0,
+			"options": {
+				"enum_titles": [
+					"No",
+					"Yes"
+				]
+			}
+		},
+		"append_date_format": {
+			"type": "string",
+			"title": "Date format of appended timestamp",
+			"description": "Date format as used in strftime() function",
+			"propertyOrder": 5300,
+			"default": "%Y%m%d%H%M%S"
+		}
 	}
 }
