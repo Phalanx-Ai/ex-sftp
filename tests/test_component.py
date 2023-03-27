@@ -3,17 +3,18 @@ Created on 12. 11. 2018
 
 @author: esner
 '''
-import unittest
-import mock
 import os
-from freezegun import freeze_time
-from io import StringIO
+import unittest
 from os import path
 from os.path import dirname
+
+import mock
+from freezegun import freeze_time
 
 from src.component import Component
 
 TEST_DIR = path.join(dirname(path.realpath(__file__)), 'test_data')
+TEST_DIR_TIMESTAMP = path.join(dirname(path.realpath(__file__)), 'test_data_timestamp')
 
 
 class TestComponent(unittest.TestCase):
@@ -35,6 +36,14 @@ class TestComponent(unittest.TestCase):
         input_table = self.comp.get_input_tables_definitions()[0]
         output_destination = self.comp.get_output_destination(input_table)
         self.assertEqual(output_destination, "/path/test_20101010000000.csv")
+
+    @freeze_time("2010-10-10")
+    @mock.patch.dict(os.environ, {'KBC_DATADIR': TEST_DIR_TIMESTAMP})
+    def test_get_output_destination_custom(self):
+        comp = Component()
+        input_table = comp.get_input_tables_definitions()[0]
+        output_destination = comp.get_output_destination(input_table)
+        self.assertEqual(output_destination, "/path/test_2010-10-10-00:00:00.csv")
 
     def test_parse_private_key_throws_error_on_invalid_key(self):
         with self.assertRaises(IndexError):

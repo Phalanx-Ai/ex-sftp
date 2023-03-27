@@ -1,0 +1,12 @@
+{
+  "parameters": {
+    "port": 22,
+    "user": "fakeuser",
+    "#pass": "fakepass",
+    "hostname": "fakehost",
+    "#private_key": "",
+    "path": "/path/",
+    "append_date": "true",
+    "append_date_format": "%Y-%m-%d-%H:%M:%S"
+  }
+}
